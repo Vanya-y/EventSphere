@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: eventsphere-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: ORGANIZER_API_KEY
+        sync: false
